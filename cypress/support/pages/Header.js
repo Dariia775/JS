@@ -33,7 +33,7 @@ class Header {
 
     }
     openLangDropdown () {
-        this.checkLangSelector.click();
+        this.getLangSelector().click({ multiple: true });
     }
     getLangList () {
         return cy.get('[data-qa="lang-selector-select-list"]');
@@ -57,6 +57,4 @@ class Header {
     
 
 }
-const languages = ['Русский', 'Українська', 'Deutsch', 'Français', 'Türkçe'];
-    languages.forEach(lang => header.assertContainsLanguage(lang));
-export const header = new Header
+export const header = new Header()

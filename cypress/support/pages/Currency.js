@@ -1,45 +1,73 @@
 class Currency {
-    getCurrency () {
-        return cy.get ('#link curr-selector');
+
+    getCurrency() {
+
+        return cy.get('#link .curr-selector');  
 
     }
-    currencyVisible () {
-        this.getCurrency().should ('be.visible');
-    }
-    
+ 
+    currencyVisible() {
 
-    getCurrencySelector () {
-        return cy.get ('[data-qa="base-modal"]');
+        this.getCurrency().should('be.visible');
 
     }
-    checkCurrencySelector () {
-        this.getCurrencySelector ()
+ 
+    getCurrencySelector() {
+
+        return cy.get('[data-qa="base-modal"]');
+
+    }
+ 
+    checkCurrencySelector() {
+
+        this.getCurrencySelector()
+
             .should('be.visible')
-            .and('contain.text', 'USD')
+
+            .and('contain.text', 'USD');
 
     }
-    openCurrencyDropdown () {
-        this.checkCurrencySelector.click();
+ 
+    openCurrencyDropdown() {
+
+        this.getCurrencySelector().click();
+
     }
-    getCurrencyList () {
+ 
+    getCurrencyList() {
+
         return cy.get('[data-qa="base-modal-content"]');
-    }
-    assertCurrencyListVisible () {
-        this.getCurrencyList ()
-        .should('be.visible');
-    }
-    assertContainsCurrency (currency) {
-        this.getCurrencyList()
-            .contains('[data-qa="currencyItem"]', currency)
-            .should('be.visible');
-    }
-    assertSelectedCurrency (currency) {
-        this.getCurrencyList()
-            .contains('li.selected', currency)
-            .should('have.class', 'selected')
 
+    }
+ 
+    assertCurrencyListVisible() {
+
+        this.getCurrencyList().should('be.visible');
+
+    }
+ 
+    assertContainsCurrency(currency) {
+
+        this.getCurrencyList()
+
+            .contains('[data-qa="currencyItem"]', currency)
+
+            .should('be.visible');
+
+    }
+ 
+    assertSelectedCurrency(currency) {
+
+        this.getCurrencyList()
+
+            .contains('li.selected', currency)
+
+            .should('have.class', 'selected');
 
     }
 
 }
-export const Currency = new Currency
+ 
+export const currency = new Currency();
+
+ 

@@ -1,72 +1,69 @@
 class SearchForm {
-    getSearchForm () {
-        return cy.get ('[data-qa="search-form"]');
-
+    getSearchForm() {
+        return cy.get('[data-qa="search-form"]');
     }
-    searchFormVisible () {
-        this.getSearchForm ()
-        .should ('be.visible');
+ 
+    searchFormVisible() {
+        this.getSearchForm().should('be.visible');
     }
-    
+ 
     searchFormFields() {
         this.getSearchForm()
-        .should('have.class','vue-search-form-group places')
-        .and('have.class','vue-search-form-group double dates')
-        .and('have.class','vue-search-form-group people')
-        .and('[data-qa="search-form-submit-button"]')
+            .find('.vue-search-form-group.places').should('exist');
+        this.getSearchForm()
+            .find('.vue-search-form-group.double.dates').should('exist');
+        this.getSearchForm()
+            .find('.vue-search-form-group.people').should('exist');
+        this.getSearchForm()
+            .find('[data-qa="search-form-submit-button"]').should('exist');
     }
-    
-    getSearchFormFieldFrom () {
-        return cy.get ('[data-qa="select-button"]');
-
+ 
+    getSearchFormFieldFrom() {
+        return cy.get('[data-qa="select-button"]');
     }
-    checkSearchFormFieldFrom () {
-        this.getSearchFormFieldFrom ()
+ 
+    checkSearchFormFieldFrom() {
+        this.getSearchFormFieldFrom()
             .should('be.visible')
-            .and('contain.text', 'Bangkok')
-
+            .and('contain.text', 'Bangkok');
     }
-    openSearchFormFieldFromDropdown () {
-        this.checkLangSelector.click();
+ 
+    openSearchFormFieldFromDropdown() {
+        this.getSearchFormFieldFrom().click();
     }
-    getCityList () {
+ 
+    getCityList() {
         return cy.get('[data-qa="select-list"]');
     }
-    assertCityListVisible () {
-        this.getCityList ()
-        .should('be.visible');
+ 
+    assertCityListVisible() {
+        this.getCityList().should('be.visible');
     }
-    assertContainsCity (city) {
+ 
+    assertContainsCity(city) {
         this.getCityList()
             .contains('[data-qa="suggestionsHeader-0"]', city)
             .should('be.visible');
     }
-    
-    getButtonSwap () {
-        return cy.get('#search-form-swap'); 
-    
+ 
+    getButtonSwap() {
+        return cy.get('#search-form-swap');
     }
-    assertButtonSwapVisible () {
-        this.getButtonSwap ()
-        .should('be.visible');
+ 
+    assertButtonSwapVisible() {
+        this.getButtonSwap().should('be.visible');
     }
-
-    assertContainsButtonSwap () {
+ 
+    assertContainsButtonSwap() {
         this.getButtonSwap()
-            .should('have.class','svg-inline--fa fa-right-left'),click()
-            .and('be.visible');
-        }
-
-        getDatePicker () {
-            return cy.get('[data-qa="datepicker-button"]'); 
-
-
-
-
-
+            .should('have.class', 'svg-inline--fa fa-right-left')
+            .and('be.visible')
+            .click();
+    }
+ 
+    getDatePicker() {
+        return cy.get('[data-qa="datepicker-button"]');
     }
 }
-
-const city = ['Bangkok', 'Chiangmai', 'Phuket', 'Hanoi', 'Krabi'];
-    
-export const searchForm = new SearchForm
+ 
+export const searchForm = new SearchForm();
