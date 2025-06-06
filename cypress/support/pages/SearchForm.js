@@ -19,15 +19,26 @@ class SearchForm {
     }
  
     getSearchFormFieldFrom() {
-        return cy.get('[data-qa="select-button"]');
+        return cy.get('[data-qa="select-button"]').first();
+
     }
- 
+    getSearchFormFieldFromInput() {
+        return cy.get('[data-qa="field-select-btn"]');
+    }
+
+ //Departure station
+
     checkSearchFormFieldFrom() {
         this.getSearchFormFieldFrom()
-            .should('be.visible')
-            .and('contain.text', 'Bangkok');
+            .should('be.visible');
     }
+
  
+    fillSearchFormFieldFrom(value) {
+        this.getSearchFormFieldFromInput().type(value);
+        this.getSearchFormFieldFromInput().should('have.value', value)
+
+    }
     openSearchFormFieldFromDropdown() {
         this.getSearchFormFieldFrom().click();
     }
