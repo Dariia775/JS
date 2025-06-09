@@ -1,32 +1,31 @@
 class Currency {
 
-    getCurrency() {
-
-        return cy.get('#link .curr-selector');  
-
-    }
- 
-    currencyVisible() {
-
-        this.getCurrency().should('be.visible');
-
-    }
- 
     getCurrencySelector() {
 
-        return cy.get('[data-qa="base-modal"]');
+        return cy.get(':nth-child(3) > .link > span');  
 
     }
- 
+
     checkCurrencySelector() {
 
         this.getCurrencySelector()
 
             .should('be.visible')
 
-            .and('contain.text', 'USD');
+            .and('contain.text', 'PLN');
 
     }
+
+ 
+    //currencyVisible() {
+
+        //this.getCurrency().should('be.visible');
+
+   // }
+ 
+    
+ 
+    
  
     openCurrencyDropdown() {
 

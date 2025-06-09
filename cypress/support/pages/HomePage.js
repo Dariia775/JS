@@ -13,5 +13,7 @@ class HomePage {
           win.resizeTo(win.screen.availWidth, win.screen.availHeight);
         });
       }
-} export const homePage = new HomePage();
+} 
+
+export const homePage = new HomePage();
 

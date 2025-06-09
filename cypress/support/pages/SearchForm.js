@@ -22,8 +22,17 @@ class SearchForm {
         return cy.get('[data-qa="select-button"]').first();
 
     }
+
     getSearchFormFieldFromInput() {
-        return cy.get('[data-qa="field-select-btn"]');
+        return cy.get('[data-qa="select-button"]').first();
+    }
+
+    getSearchFormFieldTo() {
+        return cy.get('[data-qa="field-select-btn"]').last();
+
+    }
+    getSearchFormFieldToInput() {
+        return cy.get('[data-qa="field-select-btn"]').last();
     }
 
  //Departure station
@@ -33,6 +42,12 @@ class SearchForm {
             .should('be.visible');
     }
 
+    // To station
+
+    checkSearchFormFieldTo() {
+        this.getSearchFormFieldTo()
+            .should('be.visible');
+    }
  
     fillSearchFormFieldFrom(value) {
         this.getSearchFormFieldFromInput().type(value);
@@ -75,6 +90,6 @@ class SearchForm {
     getDatePicker() {
         return cy.get('[data-qa="datepicker-button"]');
     }
+    
 }
- 
 export const searchForm = new SearchForm();
