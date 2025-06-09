@@ -19,12 +19,12 @@ describe('Open website', () => {
     const languages = ['Deutsch', 'Français'];
     languages.forEach(lang => header.assertContainsLang(lang));
     searchForm.searchFormVisible();
-    //currency.currencyVisible();
+    currency.currencyVisible();
     currency.checkCurrencySelector();
     currency.openCurrencyDropdown();
     currency.assertCurrencyListVisible();
-    currency.assertContainsCurrency();
-    currency.assertSelectedCurrency();
+    currency.assertContainsCurrency('PLN');
+    currency.assertSelectedCurrency('PLN');
 
 
 

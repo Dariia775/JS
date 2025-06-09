@@ -17,11 +17,11 @@ class Currency {
     }
 
  
-    //currencyVisible() {
+    currencyVisible() {
 
-        //this.getCurrency().should('be.visible');
+        this.getCurrencySelector().should('be.visible');
 
-   // }
+    }
  
     
  

@@ -1,4 +1,87 @@
 class SearchForm {
+
+    startDateSelector = '[data-qa="datepicker-button"] .base-form-control__content';
+
+    endDateBlock = '[data-qa="datepicker-input-range"]'; 
+  
+    endDateSelector = '[data-qa="datepicker-input-range"] .base-form-control__content';
+   
+    
+  
+    getFormattedDate(daysFromToday) {
+  
+      const date = new Date();
+  
+      date.setDate(date.getDate() + daysFromToday);
+   
+      const options = { weekday: 'short', month: 'short', day: 'numeric' };
+  
+      return date.toLocaleDateString('en-US', options).replace(',', '');
+  
+    }
+   
+   
+  
+    checkStartDateIsPlus3Days() {
+  
+      const expectedDate = this.getFormattedDate(3);
+   
+      cy.get(this.startDateSelector)
+  
+        .invoke('text')
+  
+        .then((text) => {
+  
+          const actual = text.trim().replace(',', '');
+  
+          expect(actual).to.eq(expectedDate);
+  
+        });
+  
+    }
+   
+    
+  
+    checkReturnDateIsStartDatePlus5() {
+  
+      cy.get(this.endDateBlock).click();
+   
+   
+  
+      cy.get(this.startDateSelector)
+  
+        .invoke('text')
+  
+        .then((startText) => {
+  
+          const baseDate = new Date(startText.trim());
+  
+          baseDate.setDate(baseDate.getDate() + 5);
+   
+          const options = { weekday: 'short', month: 'short', day: 'numeric' };
+  
+          const expectedReturn = baseDate.toLocaleDateString('en-US', options).replace(',', '');
+   
+      
+  
+          cy.get(this.endDateSelector)
+  
+            .should('not.contain', 'Add return')
+  
+            .invoke('text')
+  
+            .then((returnText) => {
+  
+              const actual = returnText.trim().replace(',', '');
+  
+              expect(actual).to.eq(expectedReturn);
+  
+            });
+  
+        });
+  
+    }
+   
     getSearchForm() {
         return cy.get('[data-qa="search-form"]');
     }
