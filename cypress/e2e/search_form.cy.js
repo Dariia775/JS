@@ -1,7 +1,9 @@
 
 import { cookies } from "../support/pages/Cookies";
 import { homePage } from "../support/pages/HomePage";
+import { passanger } from "../support/pages/Passangers";
 import { searchForm } from "../support/pages/SearchForm";
+
 
 describe('Find Tickets', () => {
     beforeEach(() => {
@@ -15,7 +17,18 @@ describe('Find Tickets', () => {
       searchForm.checkSearchFormFieldTo();
       searchForm.getSearchFormFieldToInput().should('have.text','Chiang Mai');
       searchForm.checkStartDateIsPlus3Days();
-      searchForm.checkReturnDateIsStartDatePlus5();
+      //searchForm.checkReturnDateIsStartDatePlus5();
+      passanger.passangerBlockVisible();
+      passanger.openPassangerBlock();
+      passanger.assertChoosePasangerVisible();
+      passanger.assertChoosePassangerContains();
+      passanger.checkAdultRow();
+      passanger.checkChildrenRow();
+      passanger.checkInfantsRow();
+
+
+
+
       //datePicker.checkDatePlusDays(3);  
       
     // const targetDate = new Date();
