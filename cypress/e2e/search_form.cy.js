@@ -33,10 +33,11 @@ describe('Find Tickets', () => {
       passenger.checkAdultCounterValueDefault();
       passenger.checkAdultDecreaseButton();
       passenger.checkAdultDecreaseButtonNumber();
-      passenger.checkAdultDecreaseButton();
       passenger.checkAdultIncreaseButton();
       passenger.checkChildrenRow();
       passenger.checkInfantsRow();
+      passenger.pressDoneButton();
+      passenger.pressFindButton();
 
 
 

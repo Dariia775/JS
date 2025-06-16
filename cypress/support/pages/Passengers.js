@@ -72,11 +72,11 @@ checkAdultCounterValueDefault() {
 }
 
 getAdultDecreaseButton() {
-    return cy.get('[data-qa="decrease-button"]');
+    return cy.get('[data-qa="decrease-new-button"]',{timeout: 10000}).first();
 }
 
 checkAdultDecreaseButton() {
-    this.getAdultDecreaseButton().click();
+    this.getAdultDecreaseButton().should('be.visible').click();
 }
 
  checkAdultDecreaseButtonNumber() {
@@ -146,7 +146,21 @@ checkInfantsRow() {
     this.getInfantsRow().should('have.text','Infants')
 
 }
-
+getDoneButton() {
+    return cy.get('[data-qa="base-modal-footer"] > .btn');
 }
+
+pressDoneButton() {
+    this.getDoneButton().click();
+}
+getFindButton() {
+    return cy.get('[data-qa="search-form-submit-button"]');
+} 
+
+pressFindButton() {
+    this.getFindButton().should('be.visible').click();
+}
+
+ }
 
 export const passenger = new Passenger();
