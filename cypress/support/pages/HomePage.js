@@ -1,7 +1,7 @@
 class HomePage {
 
     visit() {
-        cy.visit('https://12go.asia/en');
+        cy.visit('/');
     }
     verifyUrl() {
 

@@ -1,7 +1,7 @@
 
 import { cookies } from "../support/pages/Cookies";
 import { homePage } from "../support/pages/HomePage";
-import { passanger } from "../support/pages/Passangers";
+import { passanger, passenger } from "../support/pages/Passengers";
 import { searchForm } from "../support/pages/SearchForm";
 
 
@@ -18,13 +18,25 @@ describe('Find Tickets', () => {
       searchForm.getSearchFormFieldToInput().should('have.text','Chiang Mai');
       searchForm.checkStartDateIsPlus3Days();
       //searchForm.checkReturnDateIsStartDatePlus5();
-      passanger.passangerBlockVisible();
-      passanger.openPassangerBlock();
-      passanger.assertChoosePasangerVisible();
-      passanger.assertChoosePassangerContains();
-      passanger.checkAdultRow();
-      passanger.checkChildrenRow();
-      passanger.checkInfantsRow();
+      passenger.passengerBlockVisible();
+      passenger.openPassengerBlock();
+      passenger.assertChoosePassengerVisible();
+      passenger.assertChoosePassengerContains();
+      passenger.checkAmountOfPassengerDefault();
+      passenger.checkAdultRow();
+      passenger.checkAdultComposition();
+      passenger.checkAdultCompositionText();
+      passenger.checkAdultCompositionText();
+      passenger.checkAdultCompositionSubext();
+      passenger.checkAdultCompositionNumber();
+      passenger.checkAdultCounter();
+      passenger.checkAdultCounterValueDefault();
+      passenger.checkAdultDecreaseButton();
+      passenger.checkAdultDecreaseButtonNumber();
+      passenger.checkAdultDecreaseButton();
+      passenger.checkAdultIncreaseButton();
+      passenger.checkChildrenRow();
+      passenger.checkInfantsRow();
 
 
 

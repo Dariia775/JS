@@ -25,10 +25,6 @@ describe('Open website', () => {
     currency.assertCurrencyListVisible();
     currency.assertContainsCurrency('PLN');
     currency.assertSelectedCurrency('PLN');
-
-
-
-
     
 });
 });
