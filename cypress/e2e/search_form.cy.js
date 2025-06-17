@@ -1,4 +1,5 @@
 
+import { picker } from "../support/pages/Calendar";
 import { cookies } from "../support/pages/Cookies";
 import { homePage } from "../support/pages/HomePage";
 import { passanger, passenger } from "../support/pages/Passengers";
@@ -35,9 +36,18 @@ describe('Find Tickets', () => {
       passenger.checkAdultDecreaseButtonNumber();
       passenger.checkAdultIncreaseButton();
       passenger.checkChildrenRow();
+      passenger.checkChildrenCompositionSubext();
+      passenger.checkChildrenCompositionNumberDef();
+      passenger.checkChildrenCounter();
+      passenger.checkChildrenCounterValueDefault();
+      passenger.checkChildrenDecreaseButton();
+      passenger.checkChildrenIncreaseButton();
+      passenger.checkChildrenIncreaseButtonNumber();
+      passenger.checkChildrenDecreaseButtonActive();
       passenger.checkInfantsRow();
       passenger.pressDoneButton();
       passenger.pressFindButton();
+      picker.checkActiveDateMatches(3);
 
 
 

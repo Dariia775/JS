@@ -72,7 +72,8 @@ checkAdultCounterValueDefault() {
 }
 
 getAdultDecreaseButton() {
-    return cy.get('[data-qa="decrease-new-button"]',{timeout: 10000}).first();
+    return cy.get('[data-qa="people-adults"] > [data-qa="decrease-new-button"]',{timeout: 10000}).first();
+    
 }
 
 checkAdultDecreaseButton() {
@@ -128,6 +129,7 @@ checkAdultCompositionNumber() {
     this.getAdultCompositionNumber().should('have.text', '2');
 }
 
+//Children
 
 getChildrenRow() {
     return cy.get(':nth-child(2) > .field-people-row-label > .field-people-row-title');  
@@ -138,14 +140,75 @@ checkChildrenRow() {
 
 }
 
+getChildrenCompositionSubext() {
+    return cy.get(':nth-child(2) > .field-people-row-label > .field-people-row-subtext');
+
+}
+
+checkChildrenCompositionSubext() {
+    this.getChildrenCompositionSubext().should('have.text','2 to 11 Years');
+}
+
+getChildrenCompositionNumberDef() {
+    return cy.get('[data-qa="people-children"] > [data-qa="counter-value"]');
+}
+
+checkChildrenCompositionNumberDef() {
+    this.getChildrenCompositionNumberDef().should('have.text', '0');
+}
+
+getChildrenCounter() {
+    return cy.get('[data-qa="people-children"]');
+}
+
+checkChildrenCounter() {
+    this.getChildrenCounter().should('be.visible');
+}
+
+checkChildrenCounterValueDefault() {
+    this.getChildrenCounter()
+    .find('[data-qa="counter-value"]').should('be.visible')
+    .and('have.text', '0');
+}
+
+getChildrenDecreaseButton() {
+    return cy.get('[data-qa="decrease-new-button"]',{timeout: 10000});
+}
+
+checkChildrenDecreaseButton() {
+    this.getChildrenDecreaseButton().should('be.disabled');
+}
+
+ getChildrenIncreaseButton() {
+     return cy.get('[data-qa="people-children"] > [data-qa="increase-new-button"]');
+ }
+
+ checkChildrenIncreaseButton() {
+    this.getChildrenIncreaseButton()
+    .click();
+ }
+
+ checkChildrenIncreaseButtonNumber() {
+    this.getChildrenCounter().should('have.text', '1');
+ }
+
+ checkChildrenDecreaseButtonActive() {
+    this.getChildrenCounter().should('not.be.disabled');
+ }
+
+
+//Infants
+
 getInfantsRow() {
     return cy.get(':nth-child(3) > .field-people-row-label > .field-people-row-title');  
 }
 
 checkInfantsRow() {
     this.getInfantsRow().should('have.text','Infants')
-
 }
+
+//Done Button
+
 getDoneButton() {
     return cy.get('[data-qa="base-modal-footer"] > .btn');
 }
@@ -153,6 +216,9 @@ getDoneButton() {
 pressDoneButton() {
     this.getDoneButton().click();
 }
+
+//Find Button
+
 getFindButton() {
     return cy.get('[data-qa="search-form-submit-button"]');
 } 

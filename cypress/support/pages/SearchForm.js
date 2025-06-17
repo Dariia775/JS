@@ -19,8 +19,6 @@ class SearchForm {
       return date.toLocaleDateString('en-US', options).replace(',', '');
   
     }
-   
-   
   
     checkStartDateIsPlus3Days() {
   
