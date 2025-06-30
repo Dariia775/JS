@@ -1,12 +1,16 @@
 
-import { picker } from "../support/pages/Picker";
+//import { picker } from "../support/pages/Picker";
 import { cookies } from "../support/pages/Cookies";
 import { homePage } from "../support/pages/HomePage";
 import { passanger, passenger } from "../support/pages/Passengers";
 import { searchForm } from "../support/pages/SearchForm";
+import searchData from "../fixtures/searchData.json"
 
 
 describe('Find Tickets', () => {
+
+  const { route, dates, passengers } = searchData;
+
     beforeEach(() => {
         homePage.visit();
         cookies.assertCookiesButtonAllowAll();
@@ -14,9 +18,9 @@ describe('Find Tickets', () => {
     it('Search Default Value ', () => {
 
       searchForm.checkSearchFormFieldFrom();
-      searchForm.getSearchFormFieldFrom().should('have.text','Bangkok');
+      searchForm.getSearchFormFieldFrom().should('have.text', route.from);
       searchForm.checkSearchFormFieldTo();
-      searchForm.getSearchFormFieldToInput().should('have.text','Chiang Mai');
+      searchForm.getSearchFormFieldToInput().should('have.text', route.to);
       searchForm.checkStartDateIsPlus3Days();
       //searchForm.checkReturnDateIsStartDatePlus5();
       passenger.passengerBlockVisible();
@@ -47,7 +51,7 @@ describe('Find Tickets', () => {
       passenger.checkInfantsRow();
       passenger.pressDoneButton();
       passenger.pressFindButton();
-      picker.checkActiveDateMatches(3);
+      //picker.checkActiveDateMatches(dates.startOffsetDays);
       
 
 

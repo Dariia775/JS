@@ -15,7 +15,10 @@ describe('Trip Card Block', () => {
         homePage.visit();
         cookies.assertCookiesButtonAllowAll();
         passenger.pressFindButton();
-        //transportationTabs.checkTransportationTabsBlock();
+        transportationTabs.checkTransportationTabsBlock();
+        transportationTabs.checkTransportationTabsBlockContains();
+        transportationTabs.checkTransportationTabsActive();
+        transportationTabs.assertAtLeastOneTabVisible();
         tripCard.checkTripCardBlock();
         //tripCard.assertTripcardContent();
         tripCard.searchTripCardContent();
