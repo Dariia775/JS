@@ -2,7 +2,7 @@
 //import { picker } from "../support/pages/Picker";
 import { cookies } from "../support/pages/Cookies";
 import { homePage } from "../support/pages/HomePage";
-import { passanger, passenger } from "../support/pages/Passengers";
+import { passenger } from "../support/pages/Passengers";
 import { searchForm } from "../support/pages/SearchForm";
 import searchData from "../fixtures/searchData.json"
 
