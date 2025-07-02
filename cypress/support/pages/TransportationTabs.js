@@ -34,22 +34,11 @@ class TransportationTabs {
         .contains('Taxis');
 
     }
-
-    
     
       assertAtLeastOneTabVisible() {
         this.getTransportationTabsBlock()
           .should('have.length.greaterThan', 0);
       }
-    
-    
-
-    // написать какие табы может содержать этот блок
-    //добавить json для роута
-
-
-
-
 
 
     getTransportationTabsActive() {
@@ -61,6 +50,8 @@ class TransportationTabs {
         .and('exist')
         .contains('All')
     }
+
+    
 }
 
 

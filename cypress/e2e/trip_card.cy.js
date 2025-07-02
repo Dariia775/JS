@@ -5,10 +5,11 @@ import { passenger } from "../support/pages/Passengers";
 import { transportationTabs } from "../support/pages/TransportationTabs";
 
 describe('Trip Card Block', () => {
-    //beforeEach(() => {
-        //homePage.visit();
-        //cookies.assertCookiesButtonAllowAll();
-        //passenger.pressFindButton();
+    
+    // beforeEach(() => {
+    //     homePage.visit();
+    //     cookies.assertCookiesButtonAllowAll();
+    //     passenger.pressFindButton();
 
     });
     it('Trip Card Composition', () => {
@@ -23,6 +24,7 @@ describe('Trip Card Block', () => {
         //tripCard.assertTripcardContent();
         tripCard.searchTripCardContent();
         tripCard.checkLabels();
+        tripCard.pressBookButton();
         
 
     });
